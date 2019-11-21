@@ -17,7 +17,7 @@ class High_school(models.Model):
 
 
 class College(models.Model):
-    """
+    """d
     college data
     """
 
@@ -62,9 +62,7 @@ class Player(models.Model):
     weight = models.IntegerField(name = 'Weight', null=True,blank=True)
     state = models.CharField(name = 'State/Country', max_length=20, null=True,blank=True)
     hometown = models.CharField(name='Hometown', max_length=20, null=True,blank=True)
-    hometown_lat = models.DecimalField(name='hometown_lat', null=True,blank=True,decimal_places=8, max_digits= 10)
-    hometown_long = models.DecimalField(name='hometown_long', null=True,blank=True,decimal_places=8, max_digits= 10)
-    bio_link =  models.CharField(name='bio_link', max_length=50, null=True,blank=True)
+
 
     High_school = models.ForeignKey(High_school,name = 'High School', on_delete=models.CASCADE)
     Team = models.ForeignKey(College,name = 'College', on_delete=models.CASCADE)
@@ -103,7 +101,7 @@ class Record(models.Model):
     Player = models.ForeignKey(Player, name = 'Player', on_delete=models.CASCADE)
     College = models.ForeignKey(College, name = 'College', on_delete=models.CASCADE)
 
-
+    bio_link = models.CharField(name='bio_link', max_length=50, null=True, blank=True)
 
 
     class Meta:
@@ -135,5 +133,5 @@ class Accolade(models.Model):
     College = models.ForeignKey(College, name = 'College', on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name = 'College'
-        verbose_name_plural = 'College'
+        verbose_name = 'Accolade'
+        verbose_name_plural = 'Accolade'
