@@ -22,14 +22,32 @@ class College(models.Model):
     """
 
     CATEGORY = (
-        ('0', 'AMERICAN ATHLETIC'),
-        ('1', 'BIG EAST'),
-        ('2', 'PATRIOT'),
-        ('3', 'IVY'),
-        ('4', 'COLONIAL ATHLETIC ASSOCIATION'),
-        ('5', 'SOUTHERN'),
-        ('6', 'PAC-12'),
-        ('7', 'WAC'),
+        ('0', 'America East Conference'),
+        ('1', ''),
+        ('2', ''),
+        ('3', ''),
+        ('4', ''),
+        ('5', ''),
+        ('6', ''),
+        ('7', ''),
+        ('8', ''),
+        ('9', ''),
+        ('10', ''),
+        ('11', ''),
+        ('12', ''),
+        ('13', ''),
+        ('14', ''),
+        ('15', ''),
+        ('16', ''),
+        ('17', ''),
+        ('18', ''),
+        ('19', ''),
+        ('20', ''),
+        ('21', ''),
+        ('22', ''),
+        ('23', ''),
+        ('24', ''),
+
     )
 
     name = models.CharField(name='Name', max_length=20, primary_key=True)
