@@ -22,7 +22,7 @@ def sub_can_return(model, curuser):
 
 class PlayerAdmin(admin.ModelAdmin):
 
-    list_display = ['First Name','Last Name','Height','Weight']
+    list_display = ['first_name','last_name','Height','Weight']
     pass
 
 
@@ -36,7 +36,7 @@ class ColAdmin(admin.ModelAdmin):
 admin.site.register(College,ColAdmin)
 
 class RecordAdmin(admin.ModelAdmin):
-    list_display = ['Player','Potential Strats','GP','GP','Is_starter']
+    list_display = ['Player','Potential_Strats','GP','GP','Is_starter']
     pass
 
 

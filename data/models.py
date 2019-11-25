@@ -6,9 +6,9 @@ class High_school(models.Model):
     """
     high school data
     """
-    name = models.CharField(name='Name', max_length = 20, primary_key=True)
-    location_lat = models.DecimalField(name = 'location_lat', decimal_places=8, max_digits= 10)
-    location_long = models.DecimalField(name = 'location_long', decimal_places=8, max_digits= 10)
+    name = models.CharField(name='Name', max_length = 100)
+    location_lat = models.DecimalField(name = 'location_lat', decimal_places=9, max_digits= 12)
+    location_long = models.DecimalField(name = 'location_long', decimal_places=9, max_digits= 12)
 
 
     class Meta:
@@ -17,41 +17,41 @@ class High_school(models.Model):
 
 
 class College(models.Model):
-    """d
+    """
     college data
     """
 
     CATEGORY = (
-        ('0', 'America East Conference'),
-        ('1', ''),
-        ('2', ''),
-        ('3', ''),
-        ('4', ''),
-        ('5', ''),
-        ('6', ''),
-        ('7', ''),
-        ('8', ''),
-        ('9', ''),
-        ('10', ''),
-        ('11', ''),
-        ('12', ''),
-        ('13', ''),
-        ('14', ''),
-        ('15', ''),
-        ('16', ''),
-        ('17', ''),
-        ('18', ''),
-        ('19', ''),
-        ('20', ''),
-        ('21', ''),
-        ('22', ''),
-        ('23', ''),
-        ('24', ''),
+        ('0', 'Null'),
+        ('1', 'America East Conference'),
+        ('2', 'American Athletic Conference'),
+        ('3', 'ASUN Conference'),
+        ('4', 'Atlantic 10 Conference'),
+        ('5', 'Atlantic Coast Conference'),
+        ('6', 'Big East Conference'),
+        ('7', 'Big South Conference'),
+        ('8', 'Big Ten Conference'),
+        ('9', 'Big West Conference'),
+        ('10', 'Colonial Athletic Association'),
+        ('11', 'Conference USA'),
+        ('12', 'Horizon League'),
+        ('13', 'Ivy League'),
+        ('14', 'Metro Atlantic Athletic Conference'),
+        ('15', 'Mid-American Conference'),
+        ('16', 'Missouri Valley Conference'),
+        ('17', 'Northeast Conference'),
+        ('18', 'Pac-12 Conference'),
+        ('19', 'Patriot League'),
+        ('20', 'Southern Conference'),
+        ('21', 'The Summit League'),
+        ('22', 'Sun Belt Conference'),
+        ('23', 'West Coast Conference'),
+        ('24', 'Western Athletic Conference'),
 
     )
 
-    name = models.CharField(name='Name', max_length=20, primary_key=True)
-    College_League = models.IntegerField(name = 'College League', choices=CATEGORY)
+    name = models.CharField(name='Name', max_length=80)
+    College_League = models.IntegerField(name = 'College_League', choices=CATEGORY)
 
     class Meta:
         verbose_name = 'College'
@@ -74,15 +74,13 @@ class Player(models.Model):
         (7, 'WAC'),
     )
 
-    first_name = models.CharField(name='First Name', max_length=20)
-    last_name = models.CharField(name='Last Name', max_length=20)
+    first_name = models.CharField(name='first_name', max_length=20)
+    last_name = models.CharField(name='last_name', max_length=20)
     height = models.DecimalField(name = 'Height', decimal_places=2, max_digits=4, null=True,blank=True)
     weight = models.IntegerField(name = 'Weight', null=True,blank=True)
     state = models.CharField(name = 'State/Country', max_length=20, null=True,blank=True)
-    hometown = models.CharField(name='Hometown', max_length=20, null=True,blank=True)
-
-
-    High_school = models.ForeignKey(High_school,name = 'High School', on_delete=models.CASCADE)
+    hometown = models.CharField(name='Hometown', max_length=60, null=True,blank=True)
+    High_school = models.ForeignKey(High_school,name = 'High_School', on_delete=models.CASCADE)
     Team = models.ForeignKey(College,name = 'College', on_delete=models.CASCADE)
 
     class Meta:
@@ -102,7 +100,7 @@ class Record(models.Model):
         (4, 'Goalkeeper'),
     )
 
-    potential_strat = models.IntegerField(name = 'Potential Strats',  null=True,blank=True)
+    potential_strat = models.IntegerField(name = 'Potential_Strats',  null=True,blank=True)
     GP = models.IntegerField(name = 'GP',  null=True,blank=True)
     GS = models.IntegerField(name = 'GS',  null=True,blank=True)
     is_starter = models.NullBooleanField(name = 'Is_starter', null = True)
@@ -119,7 +117,7 @@ class Record(models.Model):
     Player = models.ForeignKey(Player, name = 'Player', on_delete=models.CASCADE)
     College = models.ForeignKey(College, name = 'College', on_delete=models.CASCADE)
 
-    bio_link = models.CharField(name='bio_link', max_length=50, null=True, blank=True)
+    bio_link = models.CharField(name='bio_link', max_length=100, null=True, blank=True)
 
 
     class Meta:
