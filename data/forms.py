@@ -4,13 +4,8 @@ from .models import Player
 
 
 class PlayerForm(forms.ModelForm):
-    CHOICES = (
-        ('Michael', 'Michael'),
-        ('Jun', 'Jun'),
-        ('Paul', 'Paul'),
-    )
     CATEGORY = (
-        ('0', 'Not Selected'),
+        ('0', 'ALL'),
         ('1', 'America East Conference'),
         ('2', 'American Athletic Conference'),
         ('3', 'ASUN Conference'),
@@ -39,7 +34,7 @@ class PlayerForm(forms.ModelForm):
     )
 
     POSITIONS = (
-        (0, 'Not Selected'),
+        (0, 'ALL'),
         (1, 'Forward'),
         (2, 'Midfielder'),
         (3, 'Defender'),
@@ -57,9 +52,9 @@ class PlayerForm(forms.ModelForm):
 
     League = forms.CharField(widget=forms.Select(choices=CATEGORY))
     Positions = forms.CharField(widget=forms.Select(choices=POSITIONS))
-    Starer_Year = forms.CharField(widget=forms.Select(choices=YEAR))
+    Starter_Year = forms.CharField(widget=forms.Select(choices=YEAR))
     All_Conference_Year = forms.CharField(widget=forms.Select(choices=YEAR))
 
     class Meta:
         model = Player
-        fields = ('League','Positions','Starer_Year','All_Conference_Year')
+        fields = ('League','Positions','Starter_Year','All_Conference_Year')

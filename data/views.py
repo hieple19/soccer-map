@@ -37,7 +37,7 @@ def search(request):
 
         league_id = request.POST['League']
         position_id = request.POST['Positions']
-        year_id = request.POST['Starer_Year']
+        year_id = request.POST['Starter_Year']
         all_id = request.POST['All_Conference_Year']
 
         if position_id and position_id != '0':
