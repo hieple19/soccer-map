@@ -25,9 +25,14 @@
 
  <img src= {{src}}>
 
+
 </div>
+<br>
+<br>
     <p></p>
-    <p></p>
+
+
+
 
         <p></p>
 
@@ -38,11 +43,13 @@
                         <th scope="col">#</th>
                         <th scope="col">First</th>
                         <th scope="col">Last</th>
-                        <th scope="col">Hometown</th>
                         <th scope="col">College</th>
                         <th scope="col">High School</th>
                         <th scope="col">Height</th>
                         <th scope="col">Weight</th>
+
+                        <th scope="col">Starter Year</th>
+                        <th scope="col">All Conference Year</th>
 
                     </tr>
                 </thead>
@@ -52,11 +59,14 @@
                         <th scope="row">{{player.id}}</th>
                         <td>{{ player.first_name}}</td>
                         <td>{{ player.last_name}}</td>
-                        <td>{{ player.Hometown }}</td>
                         <td>{{ player.College.Name }}</td>
                         <td>{{ player.High_School.Name }}</td>
                         <td>{{ player.Height }}</td>
                         <td>{{ player.Weight }}</td>
+
+                        <td>{{ player.get_start_year }}</td>
+                        <td>{{ player.get_conf_year }}</td>
+
                     </tr>
                     {% endfor %}
                 </tbody>

@@ -11,6 +11,9 @@ class High_school(models.Model):
     location_long = models.DecimalField(name = 'location_long', decimal_places=9, max_digits= 12)
 
 
+    def __str__(self):
+        return self.Name
+
     class Meta:
         verbose_name = 'high_school'
         verbose_name_plural = 'high_school'
@@ -53,6 +56,9 @@ class College(models.Model):
     name = models.CharField(name='Name', max_length=80)
     College_League = models.IntegerField(name = 'College_League', choices=CATEGORY)
 
+
+    def __str__(self):
+        return self.Name
     class Meta:
         verbose_name = 'College'
         verbose_name_plural = 'College'
@@ -83,9 +89,20 @@ class Player(models.Model):
     High_school = models.ForeignKey(High_school,name = 'High_School', on_delete=models.CASCADE)
     Team = models.ForeignKey(College,name = 'College', on_delete=models.CASCADE)
 
+
+    def get_start_year(self):
+        return Record.objects.filter(Player_id = self.id, Is_starter = True).count()
+
+
+    def get_conf_year(self):
+        return Accolade.objects.filter(Player_id = self.id).count()
+
     class Meta:
         verbose_name = 'Player'
         verbose_name_plural = 'Players'
+
+    def __str__(self):
+        return self.first_name+' '+self.last_name
 
 class Record(models.Model):
     """

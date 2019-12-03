@@ -10,7 +10,7 @@ class PlayerForm(forms.ModelForm):
         ('Paul', 'Paul'),
     )
     CATEGORY = (
-        ('0', 'Null'),
+        ('0', 'Not Selected'),
         ('1', 'America East Conference'),
         ('2', 'American Athletic Conference'),
         ('3', 'ASUN Conference'),
@@ -39,7 +39,7 @@ class PlayerForm(forms.ModelForm):
     )
 
     POSITIONS = (
-        (0, 'Null'),
+        (0, 'Not Selected'),
         (1, 'Forward'),
         (2, 'Midfielder'),
         (3, 'Defender'),
@@ -47,11 +47,19 @@ class PlayerForm(forms.ModelForm):
         (5, 'Goalkeeper'),
     )
 
+    YEAR = (
+        (0, 'Not Selected'),
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+    )
+
     League = forms.CharField(widget=forms.Select(choices=CATEGORY))
     Positions = forms.CharField(widget=forms.Select(choices=POSITIONS))
-    Year = forms.CharField(widget=forms.TextInput,required=False)
-    All_Conference_Year = forms.CharField(widget=forms.TextInput,required=False)
+    Starer_Year = forms.CharField(widget=forms.Select(choices=YEAR))
+    All_Conference_Year = forms.CharField(widget=forms.Select(choices=YEAR))
 
     class Meta:
         model = Player
-        fields = ('League','Positions','Year','All_Conference_Year')
+        fields = ('League','Positions','Starer_Year','All_Conference_Year')
