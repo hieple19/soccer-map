@@ -55,7 +55,6 @@ def search(request):
         context = {
             'players': players,
             'form': form,
-            'src': loc + poi,
             'hs_json': hs_json,
             'players_json': players_json,
             'college_json': college_json
