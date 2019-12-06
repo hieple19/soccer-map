@@ -81,14 +81,15 @@ WSGI_APPLICATION = 'soccer.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'leh',
+        'USER': 'leh',
+        'PASSWORD': 'bisp7Oct',
         'HOST': 'localhost',
-        'NAME': 'soccer',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'OPTIONS':{
-        "init_command":"SET foreign_key_checks = 0;",
-    }
+        'PORT': '3333',
+        # 'OPTIONS':{
+        # "init_command":"SET foreign_key_checks = 0;",
+        # }
     }
 
 }

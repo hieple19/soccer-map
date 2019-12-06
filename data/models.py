@@ -1,7 +1,5 @@
 from django.db import models
 
-
-
 class High_school(models.Model):
     """
     high school data
@@ -93,7 +91,6 @@ class Player(models.Model):
     def get_start_year(self):
         return Record.objects.filter(Player_id = self.id, Is_starter = True).count()
 
-
     def get_conf_year(self):
         return Accolade.objects.filter(Player_id = self.id).count()
 
@@ -102,7 +99,7 @@ class Player(models.Model):
         verbose_name_plural = 'Players'
 
     def __str__(self):
-        return self.first_name+' '+self.last_name
+        return self.first_name + ' '+ self.last_name
 
 class Record(models.Model):
     """
@@ -141,9 +138,6 @@ class Record(models.Model):
         verbose_name = 'Record'
         verbose_name_plural = 'Record'
 
-
-
-
 class Accolade(models.Model):
     """
     college data
@@ -157,7 +151,6 @@ class Accolade(models.Model):
         ('4', 'Honorable Mention'),
         ('5', 'Freshman Team'),
     )
-
 
     Year = models.IntegerField(name = 'Year')
     Accolade = models.IntegerField(name='Accolade', choices=TYPE)
