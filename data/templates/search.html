@@ -47,7 +47,7 @@
                 <tbody>
                     {% for player in players %}
                     <tr>
-                        <th scope="row">{{player.id}}</th>
+                        <th scope="row">{{forloop.counter}}</th>
                         <td>{{ player.first_name}}</td>
                         <td>{{ player.last_name}}</td>
                         <td>{{ player.College.Name|title }}</td>
