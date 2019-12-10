@@ -5,7 +5,6 @@ from django.http.response import JsonResponse
 import simplejson as json
 # Create your views here.
 
-
 def soccer(request):
     players = Player.objects.all()
     context = {
